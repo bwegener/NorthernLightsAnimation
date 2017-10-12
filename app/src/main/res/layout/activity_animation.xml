@@ -4,9 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context="edu.orangecoastcollege.cs273.bwegener.northernlightsanimation.AnimationActivity"
     android:orientation="vertical">
 
 
+    <ImageView
+        android:id="@+id/lightsImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/lights1" />
 
+    <Button
+        android:id="@+id/frameAnimButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/frame_anim_button_text" />
+
+    <Button
+        android:id="@+id/rotateAnimButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rotate_anim_button_text" />
+
+    <Button
+        android:id="@+id/shakeAnimButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/shake_anim_button_text" />
+
+    <Button
+        android:id="@+id/customAnimButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/custom_anim_button_text" />
 </LinearLayout>
