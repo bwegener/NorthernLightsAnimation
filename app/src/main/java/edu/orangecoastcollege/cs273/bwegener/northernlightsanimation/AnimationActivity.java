@@ -8,6 +8,15 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+/**
+ * The <code>AnimationActivity</code> displays the image
+ * and buttons that change the image.
+ *
+ * @author Brian Wegener
+ * @version 1.0
+ *
+ * Created on 10/23/2017
+ */
 public class AnimationActivity extends AppCompatActivity {
 
     // AnimationDrawable = used for frame animations
@@ -21,6 +30,11 @@ public class AnimationActivity extends AppCompatActivity {
     private ImageView lightsImageView;
 
 
+    /**
+     * This starts the app and opens the layout
+     * as well as displays the image.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +43,11 @@ public class AnimationActivity extends AppCompatActivity {
         lightsImageView = (ImageView) findViewById(R.id.lightsImageView);
     }
 
+    /**
+     * This starts a frame animation, that works
+     * similarly to a gif.
+     * @param view
+     */
     public void toggleFrameAnim(View view) {
         // hasn't been initialized yet
         if (frameAnim == null) {
@@ -45,6 +64,10 @@ public class AnimationActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This rotates the animation by spinning it clockwise.
+     * @param view
+     */
     public void toggleRotateAnim(View view) {
         if (rotateAnim == null) {
             rotateAnim = AnimationUtils.loadAnimation(this, R.anim.rotate_anim);
@@ -57,6 +80,10 @@ public class AnimationActivity extends AppCompatActivity {
         rotateAnim = null;
     }
 
+    /**
+     * This shakes the image left to right.
+     * @param view
+     */
     public void toggleShakeAnim(View view) {
 
         shakeAnim = AnimationUtils.loadAnimation(this, R.anim.shake_anim);
@@ -64,8 +91,18 @@ public class AnimationActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Toggles my custom animation which smushes the image (scale)
+     * and then makes it opaque (alpha)
+     * @param view
+     */
     public void toggleCustomAnim(View view) {
+        if(customAnim == null)customAnim = AnimationUtils.loadAnimation(this, R.anim.custom_anim);
 
+        if(!customAnim.hasStarted() || customAnim.hasEnded())
+            lightsImageView.startAnimation(customAnim);
+        else
+            lightsImageView.clearAnimation();
     }
 
 
